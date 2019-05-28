@@ -1,0 +1,156 @@
+[
+  {
+    "name": "車頭便當",
+    "phones": ["04-23204956", "04-23264761"],
+    "owner": "",
+    "address": "臺中市西區精誠路306-1號",
+    "preorderTime": "1.數量10~50個內需前3天訂 2.51~199個須前7天訂購 3.超過數量200需前一個月訂購",
+    "preorderNumbers": "最低訂購10個  15個以上可外送",
+    "deliverable": true,
+    "lat": 24.148415,
+    "lng": 120.654786
+  },
+  {
+    "name": "如來健康蔬食",
+    "phones": ["04-22650280", "0919-831779"],
+    "owner": "",
+    "address": "臺中市南區美村南路73號",
+    "preorderTime": "1.數量10~50個內前一天預訂 2.超過數量100個前兩天訂購",
+    "preorderNumbers": "1.無最低訂購數 2.上限為100個 5個以上可外送（限周邊地區）",
+    "deliverable": true,
+    "lat": 24.119844,
+    "lng": 120.666685
+  },
+  {
+    "name": "哇哈便當",
+    "phones": ["04-22255477"],
+    "owner": "",
+    "address": "臺中市中區中華路一段121號8樓之14",
+    "preorderTime": "1周前電話預約",
+    "preorderNumbers": "1.最低訂購數50個 2.上限1500個",
+    "deliverable": true,
+    "lat": 24.144898,
+    "lng": 120.675993
+  },
+  {
+    "name": "福齋素食坊",
+    "phones": ["04-22289111#11976"],
+    "owner": "",
+    "address": "臺灣大道市政大樓惠中樓10樓、地下1樓",
+    "preorderTime": "1.數量10~50個內需前3天訂 2.51個以上需前一個星期前訂購",
+    "preorderNumbers": "1.無最低訂購數 2.上限為200個 50個以上可外送",
+    "deliverable": true,
+    "lat": 24.162665,
+    "lng": 120.645749
+  },
+  {
+    "name": "日風小棧",
+    "phones": ["04-22289111#11974"],
+    "owner": "",
+    "address": "臺灣大道市政大樓惠中樓地下1樓",
+    "preorderTime": "1.數量10~50個內需前3天訂 2.超過數量51個需前一個月訂購",
+    "preorderNumbers": "1.市府內最低訂購數20個 2.上限為200個",
+    "deliverable": true,
+    "lat": 24.162665,
+    "lng": 120.645749
+  },
+  {
+    "name": "中饌自助餐",
+    "phones": ["04-22289111#11987"],
+    "owner": "臺灣大道市政大樓惠中樓10樓、地下1樓",
+    "address": "",
+    "preorderTime": "1.80個內可前一天預訂 2.訂購如超過81個以上需一個月前預訂",
+    "preorderNumbers": "無最低訂購數  市府內可指定外送地點",
+    "deliverable": true,
+    "lat": 24.162665,
+    "lng": 120.645749
+  },
+  {
+    "name": "楓樹真好吃食館",
+    "phones": ["04-22289111#11973"],
+    "owner": "",
+    "address": "臺灣大道市政大樓惠中樓地下1樓",
+    "preorderTime": "1.20個前一天預訂 2.超過21個需前一個禮拜預訂",
+    "preorderNumbers": "1.無最低訂購數 2.上限為200個 數量達20-30個可外送",
+    "deliverable": true,
+    "lat": 24.162665,
+    "lng": 120.645749
+  },
+  {
+    "name": "春",
+    "phones": ["04-23805800"],
+    "owner": "",
+    "address": "臺中市南屯區永春路17-8號",
+    "preorderTime": "超過10個需於7天前訂購",
+    "preorderNumbers": "1.最低訂購20個 2.上限為60個 20個以上可外送",
+    "deliverable": true,
+    "lat": 24.140419,
+    "lng": 120.626128
+  },
+  {
+    "name": "延味便當",
+    "phones": ["04-23374541", "0928045801"],
+    "owner": "",
+    "address": "臺中市烏日區五光路復光六巷199號",
+    "preorderTime": "超過20個需於前1天訂購",
+    "preorderNumbers": "1.最低訂購15個 2.上限為500個 15個以上可外送",
+    "deliverable": true,
+    "lat": 24.100971,
+    "lng": 120.640361
+  },
+  {
+    "name": "榮園美食館",
+    "phones": ["04-23015969", "0982239780"],
+    "owner": "",
+    "address": "臺中市西區大和路95號",
+    "preorderTime": "超過30個需於前1天訂購",
+    "preorderNumbers": "1.最低訂購5個 2.上限為50個 5個以上可外送",
+    "deliverable": true,
+    "lat": 24.150874,
+    "lng": 120.667533
+  },
+  {
+    "name": "洪良記",
+    "phones": ["04-22289111#12911"],
+    "owner": "",
+    "address": "陽明市政大樓地下樓",
+    "preorderTime": "1.20-30個前2天 2.超過30個需一個星期前預定",
+    "preorderNumbers": "1.最低訂購數20個 2.上限50個",
+    "deliverable": false,
+    "lat": 24.246983,
+    "lng": 120.720591
+  },
+  {
+    "name": "巧味",
+    "phones": ["04-22289111#12912"],
+    "owner": "",
+    "address": "陽明市政大樓地下樓",
+    "preorderTime": "20-30個3天前預訂",
+    "preorderNumbers": "1.最低訂購數20個 2.上限50個",
+    "deliverable": false,
+    "lat": 24.246983,
+    "lng": 120.720591
+  },
+  {
+    "name": "快樂屋",
+    "phones": ["04-22289111#12905"],
+    "owner": "",
+    "address": "陽明市政大樓地下樓",
+    "preorderTime": "100個以內3天前預訂",
+    "preorderNumbers": "1.最低訂購數20個 2.上限100個",
+    "deliverable": false,
+    "lat": 24.246983,
+    "lng": 120.720591
+  },
+  {
+    "name": "花便當",
+    "phones": ["04-23266769"],
+    "owner": "",
+    "address": "臺中市北區博館東街24號",
+    "preorderTime": "1. 訂購數量10-30個可當天訂購 2. 30-50個需於前一天訂購 3. 50個以上需於二天前訂購。",
+    "preorderNumbers": "5個以上可外送",
+    "deliverable": true,
+    "lat": 24.154739,
+    "lng": 120.666445
+  }
+]

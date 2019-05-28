@@ -1,0 +1,157 @@
+html, body {
+  margin: 0;
+  // overflow: hidden;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.app {
+  position: relative;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.lightbox {
+  z-index: 999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 80px 15px 0;
+  background-color: #30343F;
+  color: #FFFFFF;
+  font-size: 1.125rem;
+  overflow-y: auto;
+
+  .close-btn {
+    position: fixed;
+    right: 15px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    background: rgba(48, 52, 63, 0.4) ;
+    cursor: pointer;
+    z-index: 999;
+
+    &::before {
+      content: "\f00d";
+      position: relative;
+      display: inline-block;
+      font-size: 2rem;
+      color: #FFFFFF;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
+  }
+  .section {
+    padding-bottom: 65px;
+  }
+
+  .section-layout {
+    padding-bottom: 60px;
+    border-bottom: 1px solid #CCCCCC;
+
+    @include rwd($RWD_DESKTOP_WIDE) {
+      width: 812px;
+      margin: 0 auto;
+    }
+  }
+
+  .title {
+    padding-bottom: 30px;
+    font-size: 1.5625rem;
+    text-align: center;
+
+    @include rwd($RWD_DESKTOP_WIDE) {
+      font-size: 1.875rem;
+    }
+  }
+
+  .content {
+    padding-bottom: 40px;
+
+    @include rwd($RWD_DESKTOP_WIDE) {
+      font-size: 1.3125rem;
+    }
+
+    &:nth-last-child(1) {
+      padding: 0;
+    }
+  }
+
+  .image {
+    width: 100%;
+    padding-bottom: 50px;
+
+    &.single {
+      padding: 0;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .label {
+    padding-top: 10px;
+    font-size: 0.9375rem;
+
+    @include rwd($RWD_DESKTOP_WIDE) {
+      font-size: 1.0625rem;
+      color: #E1E1E1;
+    }
+  }
+
+  .link {
+    a {
+      color: #FFFFFF;
+      font-size: 1.125rem;
+      font-weight: bold;
+
+      &:hover {
+        color: #30343F;
+        font-size: 1.3125rem;
+        background: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        transition: color 0.2s linear, background-color 0.2s linear;
+      }
+    }
+  }
+}
+
+.lightbox-enter {
+  opacity: 0;
+}
+.lightbox-enter-active {
+  transition: opacity 0.4s;
+}
+.lightbox-enter-to {
+  opacity: 1;
+}
+.lightbox-leave {
+  opacity: 1;
+}
+.lightbox-leave-active {
+  transition: opacity 0.4s;
+}
+.lightbox-leave-to {
+  opacity: 0;
+}

@@ -1,0 +1,67 @@
+// --------------------------------------------------
+// RWD media query generator
+// --------------------------------------------------
+@mixin rwd ($device) {
+  @media only screen and (#{$device}) {
+    @content;
+  }
+}
+
+// --------------------------------------------------
+// inject pseudo element ":before" for vertical-align
+// --------------------------------------------------
+@mixin use-vertical-align ($align: middle) {
+  @if ($align == "none") {
+    &:before {
+      content: normal;
+      width: auto;
+      height: auto;
+    }
+  } @else {
+    &:before {
+      content: "";
+      display: inline-block;
+      width: 0;
+      height: 100%;
+      vertical-align: $align;
+    }
+  }
+}
+
+// --------------------------------------------------
+// inject pseudo element ":before" for vertical-align
+// --------------------------------------------------
+@mixin use-fixed-ratio ($width: none, $height: none) {
+  @if ($width == "none") {
+    &:before {
+      content: normal;
+      display: inline;
+      padding: 0;
+    }
+  } @else if ($width != "none") and ($height == "none") {
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-top: 100%;
+    }
+  } @else {
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 0;
+      padding-top: ($height / $width) * 100%;
+    }
+  }
+}
+
+// --------------------------------------------------
+// apply multi-formats blur for browsers compatibility
+// --------------------------------------------------
+@mixin use-filter-blur($radius: 4) {
+  filter: blur(#{$radius}px);
+  // filter: url("data:image/svg+xml;utf8,<svg version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" width=\"0\" height=\"0\"><filter id=\"svg-filter-blur\" x=\"-5%\" y=\"-5%\" width=\"110%\" height=\"110%\"><feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"#{$radius}\"/></filter></svg>#svg-filter-blur");
+  // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius="#{$radius}");
+}

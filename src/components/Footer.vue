@@ -1,96 +1,103 @@
 <template>
-  <div class="footer clearfix">
+  <div id="footer">
     <div class="footer-container">
-      <div class="footer-links">
-        <a href="http://www.udngroup.com/" class="link" title="前往聯合報系" target="_blank">聯合報系</a>
-        <a href="https://udndata.com/faq/authority.html" class="link" title="聯合知識庫新聞授權" target="_blank">新聞授權</a>
-        <a href="http://www.udngroup.com/members/udn_privacy" class="link" title="聯合報系網站隱私權聲明" target="_blank">隱私權聲明</a>
+      <div class="footer-link-container">
+        <span class="footer-link footer-right-board">
+          <a href="http://www.udngroup.com/" target="_blank">聯合報系</a>
+        </span>
+        <span class="footer-link footer-right-board">
+          <a href="http://udndata.com/udnauthority.html" target="_blank">新聞授權</a>
+        </span>
+        <span class="footer-link">
+          <a href="http://www.udngroup.com/members/udn_privacy" target="_blank">隱私權聲明</a>
+        </span>
       </div>
-      <div class="fan-groups">
-        <div class="label">追蹤我們</div><!--
-        --><a href="https://www.facebook.com/udnplus" class="group" title="聯合報FACEBOOK粉絲團" target="_blank">
-          <i class="fab fa-facebook-square"></i>
-        </a><!--
-        --><a href="https://www.instagram.com/udngroup/" class="group" title="聯合報instagram" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a><!--
-        --><a href="https://www.youtube.com/channel/UCEt9Vy6Kz4GKlePLgIJbtoA" class="group" title="United Daily News聯合報" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a><!--
-      --></div>
+      <div class="fan-group-container">
+        <span class="footer-fan-group">追蹤我們</span>
+        <a class="fan-group-icon" href="https://www.facebook.com/udnplus" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        <a class="fan-group-icon" href="https://www.instagram.com/udngroup" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a class="fan-group-icon" href="https://www.youtube.com/channel/UCEt9Vy6Kz4GKlePLgIJbtoA" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Footer'
+  name: 'Foot',
 }
 </script>
 
-<style lang="scss">
-  .footer {
+<style lang="scss" scoped>
+  #footer{
     position: relative;
+    z-index: 50;
     width: 100%;
-    margin: 0 auto;
-    padding: 20px 0 50px;
-    text-align: center;
-    background-color: #F7F6F6;
+    background-color: #f7f6f6;
+    padding-top: 20px;
     border-top: 1px solid #DCDDDD;
-    z-index: 999;
+    border-top-width: 80%;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-
-  .footer-container {
-    @include rwd($RWD_DESKTOP_WIDE) {
-      width: 640px;
-      margin: 0 auto;
+  .footer-container{
+    max-width: 880px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @media screen and (min-width: 1024px){
+      flex-direction: row;
     }
   }
 
-  .footer-links {
+  .footer-link-container {
     width: 100%;
     padding: 0 10px;
-
-    .link {
-      display: inline-block;
-      border-right: 1px solid #A3A3A3;
-      padding: 0 8px 0 4px;
-      color: #2D2D2D;
+    text-align: start;
+    a{
       text-decoration: none;
+      color: #2d2d2d;
     }
-
-    @include rwd($RWD_TABLET) {
-      width: auto;
-      float: left;
+    @media screen and (min-width: 1024px){
+      width: 50%;
+    }
+    .footer-link{
+      line-height: 1;
+      font-size: 16px;
+      padding: 0 8px 0 8px;
+      @media screen and (min-width: 1024px){
+        padding: 0 10px 0 10px;
+      }
+    }
+    .footer-right-board{
+      border-right: 1px solid #A3A3A3;
     }
   }
 
-  .fan-groups {
+  .fan-group-container {
     width: 100%;
-    padding: 4px 10px;
-
-    .label {
-      display: inline-block;
-      margin: 0 5px;
-      color: #7C7B7A;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    @media screen and (min-width: 1024px){
+      width: 50%;
+      justify-content: flex-end;
+    }
+    .footer-fan-group
+    {
       font-size: 16px;
-      vertical-align: middle;
-    }
-
-    .group {
-      display: inline-block;
+      color: #7c7b7a;
       margin: 0 5px;
-      font-size: 24px;
-      vertical-align: middle;
-
-      i {
-        color: #7C7B7A;
-      }
+      padding-left: 2px;
     }
-
-    @include rwd($RWD_TABLET) {
-      width: auto;
-      float: right;
+    .fan-group-icon {
+      font-size: 24px;
+      color: #7c7b7a;
+      margin: 0 5px;
     }
   }
 </style>

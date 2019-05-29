@@ -31,7 +31,7 @@
       <br>
       <br>
       <br>
-      <share></share>
+      <share href="https://udn.com/upf/newmedia/2019_data/recycle/reduction"></share>
       <br>
       <br>
       <br>
@@ -60,7 +60,7 @@
       </relate>
     </content-container>
     <content-container>
-      <FbComment />
+      <FbComment href="https://udn.com/upf/newmedia/2019_data/recycle/reduction" />
     </content-container>
     <Footer />
 

@@ -43,9 +43,9 @@ export default {
     click(){
       ga('newmedia.send', {
         hitType: 'event',
-        eventCategory: 'logo_main',
-        eventAction: 'Click_main',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [.com_hung]`,
+        eventCategory: 'out link title',
+        eventAction: 'click',
+        eventLabel: 'page2logo1',
       });
     },
   }

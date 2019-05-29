@@ -53,10 +53,10 @@
       <br>
       <br>
       <relate 
-        text1="調查報導／塑膠袋垃圾危機 真正回收不到一成" href1="https://udn.com/news/story/7266/3726270" :img1="require('@/assets/images/reduction_read1.jpg')"
-        text2="清潔隊回收物全丟垃圾車 宜蘭市公所查辦" href2="https://udn.com/news/story/7328/3774913" :img2="require('@/assets/images/reduction_read2.jpg')"
-        text3="翻出廢帳單... 亂丟垃圾重罰6千" href3="https://udn.com/news/story/7325/3742399" :img3="require('@/assets/images/reduction_read3.jpg')"
-        text4="廢紙廢塑膠大量進口 監委促請主管機關改進" href4="https://udn.com/news/story/7314/3743420" :img4="require('@/assets/images/reduction_read4.jpg')">
+        text1="「#減塑時尚」 了解一下　6樣可愛環保小物分享" href1="https://style.udn.com/style/story/8066/3664395" :img1="require('@/assets/images/reduction_read1.jpg')"
+        text2="打造無塑低碳島 小琉球飲水地圖服務上線" href2="https://udn.com/news/story/7328/3457766" :img2="require('@/assets/images/reduction_read2.jpg')"
+        text3="12不塑心法 環保免當苦行僧" href3="https://vision.udn.com/vision/story/12840/3731989" :img3="require('@/assets/images/reduction_read3.jpg')"
+        text4="徒步環島57天...垃圾海灘淌黑水 看見你我的自私" href4="https://vision.udn.com/vision/story/12840/3769323" :img4="require('@/assets/images/reduction_read4.jpg')">
       </relate>
     </content-container>
     <content-container>

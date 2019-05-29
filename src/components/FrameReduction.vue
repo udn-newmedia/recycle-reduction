@@ -118,7 +118,7 @@
         <div class="lightbox-1__section section">
           <h4 class="lightbox-1__title title">雙北鐵盒便當地圖</h4>
           <div class="lightbox-1__map">
-            <Map :bento="bentoTaipei" />
+            <Map :bento="bentoTaipei" ga="Taipei"/>
           </div>
           <div class="lightbox-1__content content">台中市則從2017年開始推動禁用免洗餐具，除鼓勵民眾從生活做起，也鼓勵便當店加入減量行列，整理出「減量愛地球」便當名單供民眾參考。各地不少業者都無最低訂購數，也不需訂購者自己清洗，會由便當店統一回收處理。</div>
         </div>
@@ -126,7 +126,7 @@
         <div class="lightbox-1__section section">
           <h4 class="lightbox-1__title title">台中市鐵盒便當地圖</h4>
           <div class="lightbox-1__map">
-            <Map :bento="bentoTaichung" />
+            <Map :bento="bentoTaichung" ga="Taichung"/>
           </div>
           <div class="lightbox-1__content content">台北市環保局統計，與禁用前相較，府內紙容器減量82％，相當於12萬2258公斤，相當可觀。位於板橋專雇身心障礙員工的甜心生活公坊，原本訂單量普通，自台北市府把新北市業者納入後，來自北市的訂單多，佔該店大宗，鐵盒便當量雖不穩定但平均每天有3百個。</div>
         </div>
@@ -275,6 +275,14 @@ export default {
   methods: {
     openLightBox (id) {
       this[`isLightbox${id}Open`] = true
+      //GA
+      ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'button',
+        eventAction: 'click',
+        eventLabel: 'method'+id,
+      })
+      //GA
     }
   }
 }

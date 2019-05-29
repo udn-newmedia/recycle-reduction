@@ -20,7 +20,6 @@ export default {
   methods: {
     goTop () {
       TweenLite.to(window, 1, { scrollTo: 0 })
-
       window.ga('newmedia.send', {
         'hitType': 'event',
         'eventCategory': 'headbar',
@@ -31,9 +30,9 @@ export default {
     handle_scroll () {
       let currentH = window.pageYOffset
       if (currentH > window.innerHeight) {
-        this.isActive = false
-      } else {
         this.isActive = true
+      } else {
+        this.isActive = false
       }
     }
   },

@@ -55,20 +55,23 @@ export default {
     z-index: 999;
     position: fixed;
     width: 100%;
-    top: -48px;
+    top: 0;
     height: 48px;
     padding-top: 2px;
     background-color: #F7F7F7;
     box-shadow: 0 8px 6px -6px rgba(#a4a4a4, .3);
+    transform: translateY(-100%);
+    transition: transform 0.1s linear;
+    backface-visibility: hidden;
 
     @include rwd($RWD_DESKTOP) {
-      top: -55px;
       height: 55px;
     }
 
     &.scrolled {
-      top: 0;
-      transition: top 0.2s ease 0.1s;
+      transform: translateY(0);
+      transition: transform 0.1s linear;
+      backface-visibility: hidden;
     }
   }
 

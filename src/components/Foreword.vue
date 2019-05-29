@@ -18,7 +18,7 @@
         <p>「如果一餐找不到地方洗，下一餐就不能用，也沒意義了。」</p>
       </div>
     </div>
-    <div class="foreword__scroll">滑動繼續</div>
+    <div class="foreword__scroll" :class="{ scrolled: scrolled }">滑動繼續</div>
   </div>
 </template>
 
@@ -30,6 +30,9 @@ export default {
       ctrl: new this.$sm.Controller()
     }
   },
+  props: {
+    scrolled: Boolean
+  },
   mounted () {
     new this.$sm.Scene({
       triggerElement: this.$refs.triggerCoverFixed,
@@ -39,7 +42,7 @@ export default {
       .addTo(this.ctrl)
       .setTween(this.$refs.dialogues, 1, { top: -10 })
       .setPin(this.$refs.cover)
-      .addIndicators({ name: 'cover-fixed' })
+      // .addIndicators({ name: 'cover-fixed' })
   }
 }
 </script>
@@ -126,6 +129,10 @@ export default {
     color: #FFFFFF;
     font-size: 0.8125rem;
     text-align: center;
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    backface-visibility: hidden;
 
     &::before {
       content: "";
@@ -139,6 +146,13 @@ export default {
       color: #ECEBE4;
       font-size: 0.9375rem;
       background: url('../assets/images/index_chevron-down-solid.svg') no-repeat center top;
+    }
+
+    &.scrolled {
+      opacity: 0;
+      transform: translateY(-100%);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      backface-visibility: hidden;
     }
   }
 }

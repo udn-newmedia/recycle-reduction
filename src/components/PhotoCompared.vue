@@ -21,6 +21,7 @@ export default {
   data () {
     return {
       rect: { x: 0, y: 0, width: 0, height: 0 },
+      firstTouchMovedPosition: null,
       position: { x: 0, y: 0 },
       percent: { x: 0, y: 0 }
     }
@@ -66,60 +67,80 @@ export default {
     }
   },
   methods: {
+    getPositionFromViewport (el) {
+      let pos = { x: el.offsetLeft, y: el.offsetTop }
+      let parent = el.offsetParent
+      while (parent) {
+        pos.x += parent.offsetLeft
+        pos.y += parent.offsetTop
+        parent = parent.offsetParent
+      }
+      pos.x -= window.pageXOffset
+      pos.y -= window.pageYOffset
+      return { ...pos }
+    },
     onResize () {
       let el = this.$el
+      let origin = this.getPositionFromViewport(el)
       this.rect = {
-        x: el.offsetLeft,
-        y: el.offsetTop,
+        x: origin.x,
+        y: origin.y,
         width: el.offsetWidth,
         height: el.offsetHeight
       }
     },
     onPointDown (event) {
-      let point = event.type.indexOf('touch') === 0 ? event.touches[0] : event
+      let isTouch = event.type.indexOf('touch') === 0
+      let point = isTouch ? event.touches[0] : event
       if (!point) {
         return
       }
-      let { layerX, layerY } = point
-      console.log(point.layerX, point.layerY)
+      let { clientX, clientY } = point
       // console.log('[begin]', clientX, clientY)
-      this.updatePosition(layerX, layerY)
-      // mouse
-      document.addEventListener('mousemove', this.onPointMove)
-      document.addEventListener('mouseup', this.onPointUp)
-      // touch
-      document.addEventListener('touchmove', this.onPointMove)
-      document.addEventListener('touchend', this.onPointUp)
-      document.addEventListener('touchcancel', this.onPointUp)
+      this.updatePosition(clientX, clientY)
+      if (!isTouch) {
+        // mouse
+        window.addEventListener('mousemove', this.onPointMove)
+        window.addEventListener('mouseup', this.onPointUp)
+      } else {
+        // touch
+        window.addEventListener('touchmove', this.onPointMove, { passive: false })
+        window.addEventListener('touchend', this.onPointUp)
+        window.addEventListener('touchcancel', this.onPointUp)
+      }
     },
     onPointMove (event) {
-      let point = event.type.indexOf('touch') === 0 ? event.touches[0] : event
+      event.preventDefault()
+      let isTouch = event.type.indexOf('touch') === 0
+      let point = isTouch ? event.touches[0] : event
       if (!point) {
         return
       }
-
-      let { layerX, layerY } = point
+      let { clientX, clientY } = point
       // console.log('[move]', clientX, clientY)
-      this.updatePosition(layerX, layerY)
+      this.updatePosition(clientX, clientY)
     },
     onPointUp (event) {
-      let point = event.type.indexOf('touch') === 0 ? event.touches[0] : event
+      let isTouch = event.type.indexOf('touch') === 0
+      let point = isTouch ? event.touches[0] : event
+      if (!isTouch) {
+        // mouse
+        window.removeEventListener('mousemove', this.onPointMove)
+        window.removeEventListener('mouseup', this.onPointUp)
+      } else {
+        // touch
+        window.removeEventListener('touchmove', this.onPointMove)
+        window.removeEventListener('touchend', this.onPointUp)
+        window.removeEventListener('touchcancel', this.onPointUp)
+      }
       if (!point) {
         return
       }
-      let { layerX, layerY } = point
-      // console.log('[end]', layerX, layerY)
-      this.updatePosition(layerX, layerY)
-      // mouse
-      document.removeEventListener('mousemove', this.onPointMove)
-      document.removeEventListener('mouseup', this.onPointUp)
-      // touch
-      document.removeEventListener('touchmove', this.onPointMove)
-      document.removeEventListener('touchend', this.onPointUp)
-      document.removeEventListener('touchcancel', this.onPointUp)
+      let { clientX, clientY } = point
+      // console.log('[end]', clientX, clientY)
+      this.updatePosition(clientX, clientY)
     },
     updatePosition (x = null, y = null) {
-      console.log('update', x, y)
       let rect = this.rect
       if (x !== null) {
         x = x - rect.x
@@ -186,14 +207,12 @@ export default {
   overflow: hidden;
   user-select: none;
   cursor: move;
-
   &__frame {
     position: relative;
     width: 100%;
     height: 0;
     padding-bottom: 56.25%;
   }
-
   &__before,
   &__after {
     position: absolute;
@@ -205,27 +224,24 @@ export default {
     backface-visibility: hidden;
     transform-origin: left top;
   }
-
   &__after {
     // transition: clip 0.2s ease-out;
   }
-
   &__handler {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    margin: 0 0 0 -4px;
+    margin: 0 0 0 -2px;
     border-left: 4px solid white;
     // transition: transform 0.2s ease-out;
     box-shadow: 0 4px 8px -6px black;
   }
-
   $comp: &;
   &--vertical {
     #{$comp}__handler {
-      margin: -4px 0 0 0;
+      margin: -2px 0 0 0;
       border-left: none;
       border-top: 4px solid white;
     }

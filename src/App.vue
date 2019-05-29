@@ -2,7 +2,7 @@
   <div class="app" :class="{ 'slide-menu-open': isSlideMenuTrigger }">
     <Header v-on:onSlideMenuTrigger="onClassChange" :scrolled= isScrolled></Header>
 
-    <Foreword />
+    <Foreword :scrolled= isScrolled />
 
     <Story
       ref="story0"
@@ -15,16 +15,6 @@
 
     <FrameReduction />
 
-    <!-- <StoryTransition
-      :backward="0"
-      :forward="1"
-      :from-photo="require('@/assets/images/story0/index_cover_background_video_m.jpg')"
-      :from-photo-large="require('@/assets/images/story0/index_cover_background_video_pc.jpg')"
-      :to-photo="require('./assets/images/story1/index_part1_background_video1_m.jpg')"
-      :to-photo-large="require('./assets/images/story1/index_part1_background_video1_pc.jpg')"
-      @transition="onTransition" /> -->
-
-    <!-- <FrameInfor /> -->
     <content-container style="background:#30343f;color:#e4e4e4;">
       <hr>
       <br>
@@ -52,7 +42,7 @@
       <br>
       <br>
       <br>
-      <relate 
+      <relate
         text1="「#減塑時尚」 了解一下　6樣可愛環保小物分享" href1="https://style.udn.com/style/story/8066/3664395" :img1="require('@/assets/images/reduction_read1.jpg')"
         text2="打造無塑低碳島 小琉球飲水地圖服務上線" href2="https://udn.com/news/story/7328/3457766" :img2="require('@/assets/images/reduction_read2.jpg')"
         text3="12不塑心法 環保免當苦行僧" href3="https://vision.udn.com/vision/story/12840/3731989" :img3="require('@/assets/images/reduction_read3.jpg')"
@@ -63,7 +53,7 @@
       <FbComment href="https://udn.com/upf/newmedia/2019_data/recycle/reduction" />
     </content-container>
     <Footer />
-
+    <GoTop />
   </div>
 </template>
 
@@ -78,9 +68,9 @@ import Foreword from '@/components/Foreword'
 import Frame2 from '@/components/Frame2'
 import FrameReduction from '@/components/FrameReduction'
 
-import FrameInfor from '@/components/FrameInfor'
 import FbComment from '@/components/FbComment'
 import Footer from '@/components/Footer'
+import GoTop from '@/components/GoTop'
 
 import ContentContainer from './components/Content.vue'
 import Editor from './components/Editor.vue'
@@ -103,15 +93,15 @@ export default {
     Foreword,
     Frame2,
     FrameReduction,
-    FrameInfor,
     FbComment,
     Footer,
+    GoTop,
     ContentContainer,
     Editor,
     Logo,
     Relate,
     Share,
-    Question,
+    Question
   },
   data () {
     return {
@@ -155,8 +145,6 @@ export default {
       } else {
         this.isScrolled = false
       }
-
-      console.log(event)
     })
   }
 }

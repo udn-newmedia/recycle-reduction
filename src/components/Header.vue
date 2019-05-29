@@ -1,7 +1,7 @@
 <template>
   <div class="header" :class="{ scrolled: scrolled }">
     <ProgressBar />
-    <div class="udn-logo">
+    <div class="udn-logo" @click="onLogoClick">
       <a href="https://udn.com" class="logo" title="回首頁" target="_blank">
         <i class="udn-icon udn-icon-logo"></i>
       </a>
@@ -20,8 +20,8 @@
     </div>
     <div class="slide-menu">
       <div class="buttons">
-        <a href="https://udn.com/upf/newmedia/2019_data/recycle/" class="button" title="民眾回收一場空" target="_blank">民眾回收一場空</a>
-        <a href="https://udn.com/upf/newmedia/2019_data/recycle/government" class="button" title="政府燒錢有用嗎" target="_blank">政府燒錢有用嗎</a>
+        <a href="https://udn.com/upf/newmedia/2019_data/recycle/"  @click="onSlideMenuClick('main')" class="button" title="民眾回收一場空" target="_blank">民眾回收一場空</a>
+        <a href="https://udn.com/upf/newmedia/2019_data/recycle/government" @click="onSlideMenuClick(1)" class="button" title="政府燒錢有用嗎" target="_blank">政府燒錢有用嗎</a>
         <a href="https://udn.com/upf/newmedia/2019_data/recycle/reduction" class="button active" title="環保不只一條路" target="_blank">環保不只一條路</a>
       </div>
     </div>
@@ -42,11 +42,25 @@ export default {
   methods: {
     onBurgerClick () {
       this.$emit('onSlideMenuTrigger')
+    },
+    onLogoClick () {
+      window.ga('newmedia.send', {
+        'hitType': 'event',
+        'eventCategory': '',
+        'eventAction': 'click',
+        'eventLabel': 'logo2'
+      })
+    },
+    onSlideMenuClick (id) {
+      window.ga('newmedia.send', {
+        'hitType': 'event',
+        'eventCategory': 'out link title ',
+        'eventAction': 'click',
+        'eventLabel': `page2to${id}`
+      })
     }
   },
-  mounted () {
-    console.log(this.scrolled)
-  }
+  mounted () {}
 }
 </script>
 

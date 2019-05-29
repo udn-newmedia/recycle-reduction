@@ -10,16 +10,33 @@
 </template>
 
 <script>
+import { detectPlatform } from 'udn-newmedia-utils'
+
 export default {
   name: 'ShareButton',
   computed: {
     sharedUrl () {
+      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`)
       let url = window.location.href
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'FB Share',
+        eventAction: 'click',
+        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`
+      })
       return url.replace(/^http:\/\//, 'https://')
     },
     lineSharedUrl () {
+      console.log('line')
       let sharedUrl = this.sharedUrl
       let sharedText = document.title
+      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [line share]`)
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'Line Share',
+        eventAction: 'click',
+        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [line share]`
+      })
       // desktop
       if (!this.$isMobile) {
         return `https://lineit.line.me/share/ui?text=${encodeURIComponent(sharedText)}&url=${encodeURIComponent(sharedUrl)}`

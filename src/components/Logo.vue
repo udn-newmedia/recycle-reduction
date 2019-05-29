@@ -14,7 +14,7 @@
     </div>
     <div class="thirdparty">
       <slot></slot>
-    </div>    
+    </div>
   </div>
 </template>
 
@@ -40,62 +40,51 @@ export default {
     // console.log(this.useUbrand)
   },
   methods: {
-    click(){
-      ga('newmedia.send', {
+    click () {
+      window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'out link title',
         eventAction: 'click',
-        eventLabel: 'page2logo1',
-      });
-    },
+        eventLabel: 'page2logo1'
+      })
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
-  .logo{
+  .logo {
     width: 140px;
-    img{
+    img {
       width: 100%;
       height: auto;
     }
   }
-  #vision img{
+  #vision img {
     width: 100%;
   }
-  .thirdparty{
+  .thirdparty {
     display: block;
   }
-  #nmd img{
+  #nmd img {
     width: 100%;
   }
-  .logo-block{
+  .logo-block {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-content: flex-start;
     align-items: flex-start;
-    margin-top:2rem;
+    margin-top: 2rem;
   }
-  .logo{
+
+  .logo {
     flex-shrink: 0;
-  }  
-  @media (min-width: 768px) and (max-width: 1024px){
-    .logo-block{
-      margin-top: 32px;
-      justify-content: center;
-      align-content: flex-start;
-      align-items: center;
-      width: 60%;
-      margin: 2rem auto;     
-    }
-    .logo{
-      margin-right: 12px;
-    }
   }
-  @media screen and (min-width: 1025px){
-    .logo-block{
-      margin-top: -24px;
+
+  @media (min-width: 768px) and (max-width: 1024px){
+    .logo-block {
+      margin-top: 32px;
       justify-content: center;
       align-content: flex-start;
       align-items: center;
@@ -103,9 +92,22 @@ export default {
       margin: 2rem auto;
     }
     .logo{
+      margin-right: 12px;
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    .logo-block {
+      margin-top: -24px;
+      justify-content: center;
+      align-content: flex-start;
+      align-items: center;
+      width: 60%;
+      margin: 2rem auto;
+    }
+    .logo {
       margin-left: 12px;
     }
-    .thirdparty{
+    .thirdparty {
       display: inline-block;
     }
   }

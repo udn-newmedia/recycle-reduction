@@ -275,14 +275,13 @@ export default {
   methods: {
     openLightBox (id) {
       this[`isLightbox${id}Open`] = true
-      //GA
-      ga('newmedia.send', {
+      // GA
+      window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'button',
         eventAction: 'click',
-        eventLabel: 'method'+id,
+        eventLabel: 'method' + id
       })
-      //GA
     }
   }
 }

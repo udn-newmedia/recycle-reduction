@@ -20,36 +20,8 @@ export default {
   data () {
     return {}
   },
-  computed: {
-    sharedUrl () {
-      let url = window.location.href
-      return url.replace(/^http:\/\//, 'https://')
-    },
-    lineSharedUrl () {
-      let sharedUrl = this.sharedUrl
-      let sharedText = document.title
-      // desktop
-      if (!this.$isMobile) {
-        return `https://lineit.line.me/share/ui?text=${encodeURIComponent(sharedText)}&url=${encodeURIComponent(sharedUrl)}`
-      }
-      // mobile
-      if (!this.$isInApp) {
-        return `https://line.me/R/msg/text/${encodeURIComponent(sharedText)} ${encodeURIComponent(sharedUrl)}`
-      }
-      // mobile in-app webview
-      return `https://line.naver.jp/R/msg/text/?${encodeURIComponent(sharedUrl)}`
-    }
-  },
-  methods: {
-    onShareFacebook () {
-      let fbShareConfig = {
-        method: 'share',
-        display: 'popup',
-        href: this.sharedUrl
-      }
-      window.FB && window.FB.ui(fbShareConfig)
-    }
-  }
+  computed: {},
+  methods: {}
 }
 </script>
 

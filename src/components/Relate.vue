@@ -87,11 +87,11 @@ export default {
   },
   methods: {
     relateClick (target) {
-      ga("newmedia.send", {
-        "hitType": "event",
-        "eventCategory": "relate",
-        "eventAction": "click",
-        "eventLabel": "[" + Utils.detectPlatform() + "] [" + document.querySelector('title').innerHTML + "] [" + target + "] [relate click]"
+      window.ga('newmedia.send', {
+        'hitType': 'event',
+        'eventCategory': 'relate',
+        'eventAction': 'click',
+        'eventLabel': '[' + Utils.detectPlatform() + '] [' + document.querySelector('title').innerHTML + '] [' + target + '] [relate click]'
       })
     },
     isPropsEntered (target, name, type) {

@@ -13,7 +13,7 @@ export default {
   components: {},
   props: {
     bento: { type: Array, default: () => [] },
-    ga: {type: String, default: ''}
+    ga: { type: String, default: '' }
   },
   data () {
     return {
@@ -50,7 +50,7 @@ export default {
           infoWindow
         })
       })
-      this.markers.forEach((marker, index)=> {
+      this.markers.forEach((marker, index) => {
         marker.addListener('click', function () {
           let { store, infoWindow } = this
           let { name, phones, address, preorderTime, preorderNumbers, deliverable } = store
@@ -67,23 +67,22 @@ export default {
           infoWindow.setContent(content)
           infoWindow.setPosition(this.position)
           infoWindow.open(this.map, this)
-          //GA
-          if(vm.ga=='Taipei') {
-            ga('newmedia.send', {
+          // GA
+          if (vm.ga === 'Taipei') {
+            window.ga('newmedia.send', {
               hitType: 'event',
               eventCategory: '雙北地圖',
               eventAction: 'click',
-              eventLabel: `${index}`,
-            });
-          }else if(vm.ga=='Taichung') {
-            ga('newmedia.send', {
+              eventLabel: `${index}`
+            })
+          } else if (vm.ga === 'Taichung') {
+            window.ga('newmedia.send', {
               hitType: 'event',
               eventCategory: '台中地圖',
               eventAction: 'click',
-              eventLabel: `${index}`,
-            });
+              eventLabel: `${index}`
+            })
           }
-          //GA
         })
       })
     })

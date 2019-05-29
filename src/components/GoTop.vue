@@ -19,7 +19,6 @@ export default {
   },
   methods: {
     goTop () {
-      this.isActive = true
       TweenLite.to(window, 1, { scrollTo: 0 })
 
       window.ga('newmedia.send', {
@@ -58,7 +57,6 @@ export default {
     width: 45px;
     height: 45px;
     overflow: hidden;
-    opacity: .6;
 
     @include rwd($RWD_DESKTOP_WIDE) {
       bottom: 3.5vh;
@@ -76,14 +74,16 @@ export default {
     background-color: #E5E5E5;
     cursor: pointer;
     transition: 333ms ease;
-    transform: translate3d(0, 0, 0);
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
 
     i{
       color: #fff;
     }
 
     &.active{
-      transform: translate3d(0, 100%, 0);
+      opacity: 0.6;
+      transform: translate3d(0, 0, 0);
     }
   }
 </style>

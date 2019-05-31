@@ -2,7 +2,7 @@
   <div class="header" :class="{ scrolled: scrolled }">
     <ProgressBar />
     <div class="udn-logo" @click="onLogoClick">
-      <a href="https://udn.com" class="logo" title="回首頁" target="_blank">
+      <a href="https://udn.com/upf/newmedia/2019_data/recycle/" class="logo" title="回首頁" target="_blank">
         <i class="udn-icon udn-icon-logo"></i>
       </a>
     </div>

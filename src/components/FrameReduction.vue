@@ -418,6 +418,7 @@ export default {
     color: #333333;
     font-size: 1.125rem;
     line-height: 1.6875rem;
+    padding-bottom: 40px;
 
     @include rwd($RWD_DESKTOP_WIDE) {
       font-size: 1.3125rem;

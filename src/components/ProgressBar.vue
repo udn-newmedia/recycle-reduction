@@ -50,6 +50,14 @@ export default {
     width: 100%;
     transition: opacity 0.2s ease;
     height: 2px;
+    height: 0;
+  }
+
+  .scrolled {
+    .progress-bar {
+      height: 2px;
+      background-color: #F7F7F7;
+    }
   }
 
   .bar {

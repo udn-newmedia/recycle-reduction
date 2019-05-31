@@ -6,10 +6,8 @@
         <i class="udn-icon udn-icon-logo"></i>
       </a>
     </div>
+
     <div class="header-layout">
-      <div class="burger" @click="onBurgerClick">
-        <div class="burger-icon"><span></span><span></span><span></span><span></span></div>
-      </div>
       <div class="header-menu">
         <div class="buttons">
           <a href="https://udn.com/upf/newmedia/2019_data/recycle/" class="button" title="民眾回收一場空" target="_blank">民眾回收一場空</a>
@@ -17,6 +15,10 @@
           <a href="https://udn.com/upf/newmedia/2019_data/recycle/reduction" class="button active" title="環保不只一條路" target="_blank">環保不只一條路</a>
         </div>
       </div>
+    </div>
+
+    <div class="burger" @click="onBurgerClick">
+      <div class="burger-icon"><span></span><span></span><span></span><span></span></div>
     </div>
     <div class="slide-menu">
       <div class="buttons">
@@ -71,21 +73,19 @@ export default {
     width: 100%;
     top: 0;
     height: 48px;
-    padding-top: 2px;
-    background-color: #F7F7F7;
-    box-shadow: 0 8px 6px -6px rgba(#a4a4a4, .3);
-    transform: translateY(-100%);
-    transition: transform 0.1s linear;
-    backface-visibility: hidden;
 
     @include rwd($RWD_DESKTOP) {
       height: 55px;
     }
 
     &.scrolled {
-      transform: translateY(0);
-      transition: transform 0.1s linear;
-      backface-visibility: hidden;
+      padding-top: 2px;
+
+      .header-layout {
+        transform: translateY(0);
+        transition: transform 0.1s linear;
+        backface-visibility: hidden;
+      }
     }
   }
 
@@ -96,6 +96,11 @@ export default {
     height: 100%;
     padding-left: 44px;
     padding-right: 46px;
+    background-color: #F7F7F7;
+    box-shadow: 0 8px 6px -6px rgba(#a4a4a4, .3);
+    transform: translateY(-100%);
+    transition: transform 0.1s linear;
+    backface-visibility: hidden;
 
     @include use-vertical-align();
 
@@ -134,6 +139,7 @@ export default {
     position: absolute;
     right: 0;
     top: 0;
+    z-index: 999;
 
     @include rwd($RWD_DESKTOP) {
       display: none;

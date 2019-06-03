@@ -97,8 +97,7 @@
     <div class="reduction__success-cover">
       <div class="spacer"></div>
       <div class="reduction__success-titles">
-        <div class="reduction__label">國外借鏡</div>
-        <div class="reduction__title">德國押金杯如何成功</div>
+        <div class="reduction__title">國外借鏡<span>:</span>德國押金杯如何成功</div>
       </div>
     </div>
 
@@ -178,7 +177,7 @@
             <img alt="「青瓢」發展出進駐各大活動的環保杯租賃模式。"
               src="@/assets/images/reduction_open_method3_img1.jpg">
           </div>
-          <div class="lightbox-3__content content">青瓢創辦人林志龍幾年前赴海外參加會議，當時的主辦方與法國環保杯企業 Ecocup 合作，在會場中提供環保杯，打破「人手一紙杯」的景象，這一幕促使他思考，台灣一年浪費15億個免洗杯，若能在台推動杯具租賃服務，運送至活動會場供民眾使用，就能減輕民眾對環保費時費力的想法。</div>
+          <div class="lightbox-3__content content">青瓢共同創辦人林志龍幾年前赴海外參加會議，當時的主辦方與法國環保杯企業 Ecocup 合作，在會場中提供環保杯，打破「人手一紙杯」的景象，這一幕促使他思考，台灣一年浪費15億個免洗杯，若能在台推動杯具租賃服務，運送至活動會場供民眾使用，就能減輕民眾對環保費時費力的想法。</div>
           <div class="lightbox-3__content content">2016年林志龍與夥伴鄭文普、朱怡錚共同創辦杯具租賃企業「青瓢」，起初他鎖定台灣手搖飲料店家，若成功就能讓飲料族告別免洗杯，但便宜的免洗杯與循環的青瓢杯相比，飲料業者得增加成本，且牽涉複雜的企業合作與金流，非一蹴可及，因此決定先投入大型活動。</div>
           <div class="lightbox-3__content content">後來他們參考法國的Recup、Ecocup、日本環保餐具推廣聯盟等海外減塑團隊的經驗後，認為有限定範圍的活動中，比較容易集中回收杯子，因此發展出進駐各大活動的環保杯租賃模式。</div>
         </div>
@@ -655,6 +654,7 @@ export default {
     width: 100%;
     text-align: center;
     background: url('../assets/images/reduction_background_3_m.jpg') no-repeat center center/cover fixed;
+    outline: 5px solid black;
 
     @include use-vertical-align;
 
@@ -664,16 +664,34 @@ export default {
 
     #{$frame}__success-titles {
       position: relative;
+      width: 100%;
       height: 100vh;
       text-align: center;
+      white-space: nowrap;
+
+      @include use-vertical-align;
     }
 
     #{$frame}__title {
+      display: inline-block;
+      vertical-align: middle;
       position: relative;
       padding: 0 0 145px 0;
       color: #FFFFFF;
       font-size: 1.875rem;
       writing-mode: vertical-rl;
+
+      span {
+        display: inline-block;
+        writing-mode: horizontal-tb;
+        position: relative;
+        // width: 44px;
+        padding-left: 4px;
+        height: auto;
+        color: #FFFFFF;
+        font-size: 1.875rem;
+        text-align: center;
+      }
 
       &::after {
         content: "";
@@ -699,18 +717,12 @@ export default {
 
     #{$frame}__label {
       position: relative;
-      width: 50px;
+      width: 44px;
+      height: auto;
       color: #FFFFFF;
       font-size: 1.875rem;
       text-align: center;
       writing-mode: vertical-rl;
-
-      &::after {
-        content: "：";
-        display: inline-block;
-        margin-left: 4px;
-        writing-mode: horizontal-tb;
-      }
     }
   }
 

@@ -221,7 +221,7 @@ export default {
       vertical-align: middle;
       writing-mode: vertical-rl;
       margin-top: -10px;
-      margin-right: 22px;
+      // margin-right: 22px;
       color: #FFFFFF;
       font-size: 2rem;
       text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);

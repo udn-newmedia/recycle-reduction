@@ -119,6 +119,15 @@ export default {
     .logo {
       display: inline-block;
       text-decoration: none;
+
+      transform: rotate(0);
+      transform-origin: center;
+      backface-visibility: none;
+      transition: transform 0.2s ease-in;
+
+      &:hover {
+        transform: rotate(16deg);
+      }
     }
 
     i {

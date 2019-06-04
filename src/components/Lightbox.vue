@@ -1,7 +1,6 @@
 <template>
   <transition name="lightbox">
     <div class="lightbox" v-if="value">
-      <!-- <div id="btn" class="close-btn" @click="onCloseBtnClick"></div> -->
       <div class="close-btn" @click="onCloseBtnClick"></div>
       <slot></slot>
       <ShareButton />

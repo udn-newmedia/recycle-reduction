@@ -21,7 +21,7 @@
       <br>
       <br>
       <br>
-      <share href="http://nmdap.udn.com.tw/upf/newmedia/2019_data/recycle/reduction"></share>
+      <share href="https://udn.com/upf/newmedia/2019_data/recycle/reduction"></share>
       <br>
       <br>
       <br>

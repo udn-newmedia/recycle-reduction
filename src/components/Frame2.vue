@@ -54,8 +54,13 @@ export default {
       color: #FFFFFF;
     }
 
+    @include rwd($RWD_TABLET) {
+      padding: 0 100px;
+    }
+
     @include rwd($RWD_DESKTOP_WIDE) {
       width: 90%;
+      padding: 0;
       max-width: 812px;
       font-size: 1.3125rem;
       line-height: 1.5rem;

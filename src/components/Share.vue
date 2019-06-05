@@ -27,10 +27,9 @@ export default {
   },
   methods: {
     shareToFb () {
-      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`)
       window.ga('newmedia.send', {
         hitType: 'event',
-        eventCategory: '',
+        eventCategory: 'Share',
         eventAction: 'click',
         eventLabel: 'Click_FBbottom'
       })
@@ -42,10 +41,10 @@ export default {
       } else {
         window.open(`https://lineit.line.me/share/ui?url=${this.setProps('href')}`)
       }
-      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [line share]`)
+
       window.ga('newmedia.send', {
         hitType: 'event',
-        eventCategory: '',
+        eventCategory: 'Share',
         eventAction: 'click',
         eventLabel: 'Click_Linebottom'
       })

@@ -3,7 +3,7 @@
     <div class="share-button__social"><!--
     --><a class="share-button__share-facebook" title="FB分享" @click.prevent.stop="onShareFacebook"><!--
       --><i class="fab fa-facebook-f" /></a><!--
-    --><a class="share-button__share-line" title="LINE分享" target="_blank" :href="lineSharedUrl"><!--
+    --><a class="share-button__share-line" title="LINE分享" target="_blank" :href="lineSharedUrl" @click="onLineShare"><!--
       --><img src="@/assets/images/share-line.png" alt="LINE分享" /></a>
     </div>
   </div>
@@ -16,21 +16,12 @@ export default {
   name: 'ShareButton',
   computed: {
     sharedUrl () {
-      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`)
       let url = window.location.href
-      window.ga('newmedia.send', {
-        hitType: 'event',
-        eventCategory: 'FB Share',
-        eventAction: 'click',
-        eventLabel: `[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [fb share]`
-      })
       return url.replace(/^http:\/\//, 'https://')
     },
     lineSharedUrl () {
-      console.log('line')
       let sharedUrl = this.sharedUrl
       let sharedText = document.title
-      console.log(`[${detectPlatform()}] [${document.querySelector('title').innerHTML}] [line share]`)
       window.ga('newmedia.send', {
         hitType: 'event',
         eventCategory: 'Line Share',
@@ -57,6 +48,20 @@ export default {
         href: this.sharedUrl
       }
       window.FB && window.FB.ui(fbShareConfig)
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'Share',
+        eventAction: 'click',
+        eventLabel: 'Click_FBtop'
+      })
+    },
+    onLineShare () {
+      window.ga('newmedia.send', {
+        hitType: 'event',
+        eventCategory: 'Share',
+        eventAction: 'click',
+        eventLabel: 'Click_Linetop'
+      })
     }
   }
 }

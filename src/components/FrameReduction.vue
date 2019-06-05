@@ -1,5 +1,6 @@
 <template>
   <div class="frame reduction">
+
     <div class="reduction__longbox">
       <div class="reduction__image">
         <img class="reduction__mobile" alt="台灣每年使用超過50億個紙杯、餐盒，不少民眾有心減用，往往因太過麻煩而破功。"
@@ -95,10 +96,13 @@
     </div>
 
     <div class="reduction__success-cover">
-      <div class="spacer"></div>
-      <div class="reduction__success-titles">
+      <StickCover />
+      <!-- <div ref="trigger-stick-cover" class="triggerStickCover"></div>
+      <div ref="stickcover" class="stick-cover"></div> -->
+      <!-- <div class="spacer"></div> -->
+      <!-- <div class="reduction__success-titles">
         <div class="reduction__title">國外借鏡<span>:</span>德國押金杯如何成功</div>
-      </div>
+      </div> -->
     </div>
 
     <div class="reduction__section">
@@ -255,6 +259,7 @@ import bentoTaichung from '@/assets/scripts/bento-taichung'
 import Lightbox from '@/components/Lightbox'
 import Map from '@/components/Map'
 import PhotoCompared from '@/components/PhotoCompared'
+import StickCover from '@/components/StickCover'
 
 export default {
   name: 'FrameReduction',
@@ -267,12 +272,14 @@ export default {
       isLightbox2Open: false,
       isLightbox3Open: false,
       isLightbox4Open: false
+      // ctrl: new this.$sm.Controller()
     }
   },
   components: {
     Lightbox,
     Map,
-    PhotoCompared
+    PhotoCompared,
+    StickCover
   },
   methods: {
     openLightBox (id) {
@@ -285,6 +292,15 @@ export default {
         eventLabel: 'method' + id
       })
     }
+  },
+  mounted () {
+    // new this.$sm.Scene({
+    //   triggerElement: this.$refs.triggerStickCover,
+    //   duration: '100%'
+    // })
+    //   .addTo(this.ctrl)
+    //   .setPin(this.$refs.stickcover)
+    //   .addIndicators({ name: 'fixed-cover' })
   }
 }
 </script>
@@ -653,67 +669,73 @@ export default {
     position: relative;
     width: 100%;
     text-align: center;
-    background: url('../assets/images/reduction_background_3_m.jpg') no-repeat center center/cover fixed;
-    outline: 5px solid black;
+    // outline: 5px solid black;
 
-    @include use-vertical-align;
+    // @include use-vertical-align;
 
-    @include rwd($RWD_DESKTOP_WIDE) {
-      background: url('../assets/images/reduction_background_3_pc.jpg') no-repeat center center/cover fixed;
-    }
+    // .stick-cover {
+    //   position: relative;
+    //   width: 100%;
+    //   height: 100vh;
+    //   background: url('../assets/images/reduction_background_3_m.jpg') no-repeat center center/cover fixed;
 
-    #{$frame}__success-titles {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      text-align: center;
-      white-space: nowrap;
+    //   @include rwd($RWD_DESKTOP_WIDE) {
+    //     background: url('../assets/images/reduction_background_3_pc.jpg') no-repeat center center/cover fixed;
+    //   }
+    // }
 
-      @include use-vertical-align;
-    }
+    // #{$frame}__success-titles {
+    //   position: relative;
+    //   width: 100%;
+    //   height: 100vh;
+    //   text-align: center;
+    //   white-space: nowrap;
 
-    #{$frame}__title {
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      padding: 0 0 145px 0;
-      color: #FFFFFF;
-      font-size: 1.875rem;
-      writing-mode: vertical-rl;
+    //   @include use-vertical-align;
+    // }
 
-      span {
-        display: inline-block;
-        writing-mode: horizontal-tb;
-        position: relative;
-        // width: 44px;
-        padding-left: 4px;
-        height: auto;
-        color: #FFFFFF;
-        font-size: 1.875rem;
-        text-align: center;
-      }
+    // #{$frame}__title {
+    //   display: inline-block;
+    //   vertical-align: middle;
+    //   position: relative;
+    //   padding: 0 0 145px 0;
+    //   color: #FFFFFF;
+    //   font-size: 1.875rem;
+    //   writing-mode: vertical-rl;
 
-      &::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        right: 20px;
-        width: 1px;
-        height: 135px;
-        margin: 0 auto;
-        background-color: #FFFFFF;
-      }
+    //   span {
+    //     display: inline-block;
+    //     writing-mode: horizontal-tb;
+    //     position: relative;
+    //     // width: 44px;
+    //     padding-left: 4px;
+    //     height: auto;
+    //     color: #FFFFFF;
+    //     font-size: 1.875rem;
+    //     text-align: center;
+    //   }
 
-      @include rwd($RWD_DESKTOP_WIDE) {
-        padding: 0 0 165px 0;
-        font-size: 2.125rem;
-        font-weight: bold;
+    //   &::after {
+    //     content: "";
+    //     position: absolute;
+    //     bottom: 0;
+    //     right: 20px;
+    //     width: 1px;
+    //     height: 135px;
+    //     margin: 0 auto;
+    //     background-color: #FFFFFF;
+    //   }
 
-        &::after {
-          right: 22px;
-        }
-      }
-    }
+    //   @include rwd($RWD_DESKTOP_WIDE) {
+    //     padding: 0 0 165px 0;
+    //     font-size: 2.125rem;
+    //     font-weight: bold;
+
+    //     &::after {
+    //       right: 22px;
+    //     }
+    //   }
+    // }
 
     #{$frame}__label {
       position: relative;
@@ -724,11 +746,6 @@ export default {
       text-align: center;
       writing-mode: vertical-rl;
     }
-  }
-
-  &__success-titles {
-    display: inline-block;
-    vertical-align: middle;
   }
 
   &__success-content {

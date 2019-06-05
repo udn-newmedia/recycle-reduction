@@ -220,12 +220,16 @@ export default {
       display: inline-block;
       vertical-align: middle;
       writing-mode: vertical-rl;
-      margin-top: -10px;
+      margin-top: -120px;
       // margin-right: 22px;
       color: #FFFFFF;
       font-size: 2rem;
       text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
       opacity: 0.8;
+
+      @include rwd($RWD_TABLET_SMALL) {
+        margin-top: -10px;
+      }
 
       @include rwd($RWD_DESKTOP_WIDE) {
         font-size: 3.75rem;
@@ -236,12 +240,17 @@ export default {
       display: inline-block;
       vertical-align: middle;
       writing-mode: vertical-rl;
+      margin-top: -110px;
       font-size: 2rem;
       line-height: 2rem;
       padding: 190px 13px 0 0;
       color: #FFFFFF;
       text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
       opacity: 0.8;
+
+      @include rwd($RWD_TABLET_SMALL) {
+        margin-top: 0;
+      }
 
       @include rwd($RWD_DESKTOP_WIDE) {
         font-size: 3.75rem;
